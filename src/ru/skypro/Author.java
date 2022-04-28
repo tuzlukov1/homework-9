@@ -1,5 +1,7 @@
 package ru.skypro;
 
+import java.util.Objects;
+
 public class Author {
 
     private String name;
@@ -24,5 +26,17 @@ public class Author {
 
     public void setSubname(String subname) {
         this.subname = subname;
+    }
+
+    public String toString() {
+        return "Имя: " + name + ", фамилия: " + subname;
+    }
+
+    public boolean equals(Author author) {
+        return name.equals(author.name) && (subname.equals(author.subname));
+    }
+
+    public int hashCode() {
+        return Objects.hash(name, subname);
     }
 }
