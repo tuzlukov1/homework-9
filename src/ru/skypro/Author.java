@@ -28,14 +28,23 @@ public class Author {
         this.subname = subname;
     }
 
+    @Override
     public String toString() {
-        return "Имя: " + name + ", фамилия: " + subname;
+        return "Author{" +
+                "name='" + name + '\'' +
+                ", subname='" + subname + '\'' +
+                '}';
     }
 
-    public boolean equals(Author author) {
-        return name.equals(author.name) && (subname.equals(author.subname));
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Author author = (Author) o;
+        return name.equals(author.name) && subname.equals(author.subname);
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(name, subname);
     }
